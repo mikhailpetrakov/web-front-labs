@@ -1,0 +1,29 @@
+body {
+    background-color: lightblue;
+    color: maroon;
+    font-family: Arial;
+    margin: 0px;
+}
+
+header {
+    background-color: rgb(85, 194, 234);
+    color: rgb(205, 31, 69);
+    font-size: 20px;
+    padding: 10px;
+}
+
+main {
+    margin: 50px;
+}
+
+footer {
+    background-color: rgb(85, 194, 234);
+    color: rgb(205, 31, 69);
+    font-size: 20px;
+    padding: 10px;
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+}
