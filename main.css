@@ -24,6 +24,20 @@ footer {
     text-align: right;
 }
 
+div.menu {
+    background-color: white;
+    border: 7px solid #00880080;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+div.menu:hover {
+    color: rgb(17, 10, 2);
+    background-color: #fbddb3c7;
+    box-shadow: 0 0 15px black;
+}
+
 a {
     text-decoration: none;
     transition: 1s 2s;
