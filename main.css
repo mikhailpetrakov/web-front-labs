@@ -28,6 +28,16 @@ footer {
     left: 0;
 }
 
+div.text {
+    margin: 20px;
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 7px;
+    width: 500px;
+    height: 200px;
+    overflow: auto;
+}
+
 div.menu {
     background-color: white;
     border: 7px solid #00880080;
