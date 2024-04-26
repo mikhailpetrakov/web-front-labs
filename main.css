@@ -27,3 +27,21 @@ footer {
 a {
     text-decoration: none;
 }
+
+a:link {
+    color: blue
+}
+
+a:visited {
+    color: blueviolet;
+}
+
+a:hover {
+    color: rgb(106, 6, 6);
+    text-decoration: underline;
+}
+
+a:active {
+    color: black;
+    opacity: 0.3;
+}
