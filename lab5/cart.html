@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петраков Михаил Вячеславович. Лабораторная работа 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../favicon-16x16.png">
+    <link rel="stylesheet" href="../favicon-32x32.png">
+    <script>
+        function sum() {
+            let apples = 100 * document.getElementById('apples').value;
+            let pears = 80 * document.getElementById('pears').value;
+            let oranges = 150 * document.getElementById('oranges').value;
+            let melons = 300 * document.getElementById('melons').value;
+            let watermelons = 300 * document.getElementById('watermelons').value;
+
+            document.getElementById('output').innerHTML = 'Общая цена: ' + parseInt(apples + pears + oranges + melons + watermelons);
+        }
+
+
+        function clearCart() {
+            document.getElementById('apples').value = "";
+            document.getElementById('pears').value = "";
+            document.getElementById('oranges').value = "";
+            document.getElementById('melons').value = "";
+            document.getElementById('watermelons').value = "";
+            document.getElementById('output').remove();
+        }
+
+    </script>
+
+    <style>
+        .cart {
+            width: 300px;
+            border: 3px solid maroon;
+            border-radius: 5px;
+            padding: 0 0 10px 10px;
+        }
+
+        .cart-input {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 230px;
+            padding: 5px 0 5px 5px;
+            border-radius: 10px;
+            border: 0;
+        }
+
+        .cart-input:focus {
+            outline: none;
+        }
+
+        .cart-button {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div class="cart">
+            <h1>Корзина товаров</h1>
+            <div class="cart-inputs">
+                <div>
+                    <label>Яблоки (100р/шт): <input type="number" class="cart-input" min="0"
+                                                    placeholder="Введите количество яблок" id="apples"></label>
+                </div>
+                <div>
+                    <label>Груши (80р/шт): <input type="number" class="cart-input" min="0"
+                                                  placeholder="Введите количество груш" id="pears"></label>
+                </div>
+                <div>
+                    <label>Апельсины (150р/шт): <input type="number" class="cart-input" min="0"
+                                                       placeholder="Введите количество апельсинов" id="oranges"></label>
+                </div>
+                <div>
+                    <label>Дыни (300р/шт): <input type="number" class="cart-input" min="0"
+                                                  placeholder="Введите количество дынь" id="melons"></label>
+                </div>
+                <div>
+                    <label>Арбузы (300р/шт): <input type="number" class="cart-input" min="0"
+                                                    placeholder="Введите количество арбузов" id="watermelons"></label>
+                </div>
+                <input type="button" class="cart-button" value="Рассчитать" onclick="sum()">
+                <input type="button" class="cart-button" value="Очистить" onclick="clearCart()">
+                <div class="result"><span id="output"></span></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" ondblclick="showSentence()" >
+        &copy; Михаил Петраков, ФБИ-23, 2 курс, 2024
+    </footer>
+</body>
+</html>
