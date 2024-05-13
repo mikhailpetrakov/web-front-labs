@@ -8,32 +8,33 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../favicon-16x16.png">
     <link rel="stylesheet" href="../favicon-32x32.png">
+    <script>
+        function blurChange() {
+            let value = document.getElementById('blurValue').value + 'px';
+            document.getElementById('blurOutput').innerText = value;
+            document.getElementById('blurImage').style.filter = 'blur(' + value + ')';
+        }
+    </script>
+
+    <style>
+    </style>
 </head>
 <body>
-    <header>
+    <header onclick="showAuthor()">
         НГТУ, ФБ, Лабораторная работа 5
     </header>
 
     <main>
-        <ol>
-            <li>
-                <a href="arithmetic.html">Сумма</a>
-            </li>
-            <li>
-                <a href="cart.html">Корзина</a>
-            </li>
-            <li>
-                <a href="cart.html">Круги</a>
-            </li>
-            <li>
-                <a href="filters.html">Фильтры</a>
-            </li>
-    </main>
+        <div>
+            Фильтр blur:
+            <input type="range" min="0"  max="20" value="0" onchange="blurChange()" id="blurValue">
+            <span id="blurOutput"></span>
+        </div>
+        <div><img src="mountain.jpg" id="blurImage"></div>
     </main>
 
-    <footer>
+    <footer class="footer" ondblclick="showSentence()" >
         &copy; Михаил Петраков, ФБИ-23, 2 курс, 2024
     </footer>
-    
 </body>
 </html>
