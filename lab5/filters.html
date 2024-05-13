@@ -12,7 +12,7 @@
         function blurChange() {
             let value = document.getElementById('blurValue').value + '%';
             document.getElementById('blurOutput').innerText = value;
-            document.getElementById('blueImage').style.filter = 'brightness(' + value + ')';
+            document.getElementById('blurImage').style.filter = 'grayscale(' + value + ')';
         }
     </script>
 
@@ -26,8 +26,8 @@
 
     <main>
         <div>
-            Фильтр яркости:
-            <input type="range" min="0" max="500" value="0" onchange="blurChange()" id="blurValue">
+            Фильтр grayscale:
+            <input type="range" min="0" max="100" value="0" onchange="blurChange()" id="blurValue">
             <span id="blurOutput"></span>
         </div>
         <div>
