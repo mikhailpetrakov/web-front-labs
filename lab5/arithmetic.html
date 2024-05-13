@@ -18,10 +18,42 @@
             let result = a + b;
             alert('Сумма ' + a + ' и ' + b + ' равна ' + result)
         }
+
+        function showDif() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a - b;
+            alert('Разность '+a+' и '+b+' равна: '+result);
+        }
+
+        function showQuo() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a / b;
+            alert('Частное '+a+' и '+b+' равно: '+result);
+        }
+
+        function showPro() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a * b;
+            alert('Произведение '+a+' и '+b+' равно: '+result);
+        }
+
         function showAuthor() {
             let author = 'Автор страницы: \nПетраков Михаил Вячеславович';
             alert(author);
         }
+
         function showSentence() {
             let sentence = 'Привет, дружище, послушай мою песню! \nМаленький бабиджон, маленький бабиджон \nКто мне расскажет, кто подскажет \nГде же он, где же он?';
             alert(sentence);
@@ -49,11 +81,16 @@
     </header>
 
     <main>
-        <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
-        <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
-        <div class="message" onclick="showSum()">Найти сумму чисел</div>
-        
-        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+        <div style="text-align: center;">
+            <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
+            <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
+            <div class="message" onclick="showSum()">Найти сумму чисел</div>
+            <div class="message" onclick="showPro()">Найти произведение чисел</div>
+            <div class="message" onclick="showQuo()">Найти частное чисел</div>
+            <div class="message" onclick="showDif()">Найти разность чисел</div>
+            
+            <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+        </div>
     </main>
 
     <footer class="footer" ondblclick="showSentence()" >
