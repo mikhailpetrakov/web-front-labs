@@ -58,6 +58,13 @@
             let sentence = 'Привет, дружище, послушай мою песню! \nМаленький бабиджон, маленький бабиджон \nКто мне расскажет, кто подскажет \nГде же он, где же он?';
             alert(sentence);
         }
+        function changeOutput(buttonNum, backColor, textColor, borderColor) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка ' + buttonNum;
+            output.style.backgroundColor = backColor;
+            output.style.color = textColor;
+            output.style.borderColor = borderColor
+        }
     </script>
     <style>
         .message {
@@ -72,6 +79,11 @@
         }
         .footer {
             cursor: pointer;
+        }
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
         }
     </style>
 </head>
@@ -91,6 +103,14 @@
             
             <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
         </div>
+        <div>
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow', 'lime')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime', 'red')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'purple', 'white', 'yellow')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'blue', 'red', 'black')">
+        </div>
+
+        <div id="output"></div>
     </main>
 
     <footer class="footer" ondblclick="showSentence()" >
