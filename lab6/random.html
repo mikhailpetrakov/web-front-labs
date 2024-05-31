@@ -23,7 +23,15 @@
             position: relative;
             left: 755px;
         }
-
+        .rules{
+            text-align:center;
+            width: 500px;
+            border: 1px solid;
+            border-radius: 3px;
+            vertical-align: top;
+            margin: 10px auto;
+            background-color: aliceblue;
+      }
     </style>
     <script>
         let number;
@@ -34,12 +42,32 @@
             screens[0].style.display = 'none';
             screens[1].style.display = 'block';
         }
+        function rules_1() {
+            let screen = document.getElementsByClassName('rules');
+            screen[0].style.display = 'none';
+            screen[1].style.display = 'block';
+        }
+        function rules_2() {
+            let screen = document.getElementsByClassName('rules');  
+            screen[0].style.display = 'block';
+            screen[1].style.display = 'none';
+        }
         function guess() {
             count++;
             let input = document.getElementById('user-number');
             let userNumber = parseInt(input.value);
             let message = document.getElementById('result');
-            if(userNumber > number) {
+            if (userNumber < 1) {
+                message.innerHTML = 'Доступный диапазон от 1 до 100';
+            }
+            else if (userNumber > 100) {
+                message.innerHTML = 'Доступный диапазон от 1 до 100';
+            }
+            else if (isNaN(userNumber)) {
+                message.innerHTML = 'Нет числа';
+                count = count - 1
+            }
+            else if (userNumber > number) {
                 message.innerHTML = 'Вы ввели слишком большое число';
             }
             else if (userNumber < number) {
@@ -54,7 +82,12 @@
             }
         }
         function again(params) {
-
+            number = Math.floor( Math.random() * 100) + 1;
+            let count = 0;
+            let screens = document.getElementsByClassName('game');
+            screens[1].style.display = 'block';
+            screens[2].style.display = 'none';
+            document.getElementById('user-number').value = '';
         }
     </script>
 </head>
@@ -68,6 +101,25 @@
             <button onclick="startGame()">
                 Сыграть в игру
             </button>
+        </div>
+
+        <div class="rules">
+            <button onclick="rules_1()">
+                Показать правила игры
+            </button>
+        </div>
+
+        <div class="rules" style="display: none;">
+            <button onclick="rules_2()">
+                Скрыть правила игры
+            </button>
+            <ol type="I">
+               <li>Сначала нажмите на кнопку "сыграть в игру"</li>
+               <li>Введите любое число от 1 до 100 и нажмите на кнопку "угадать"</li>
+               <li>Исходя из предоставленной подсказки введите следующее число</li>
+               <li>Повторяйте действие пока не угадаете число</li>
+               <li>Если захотите ещё раз сыграть, то нажмите на кнопку "сыграть ещё раз"</li>
+            </ol>
         </div>
 
         <div class="game" style="display: none;">
