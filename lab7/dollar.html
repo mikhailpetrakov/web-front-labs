@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петраков Михаил Вячеславович. Лабораторная работа 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../favicon-16x16.png">
+    <link rel="stylesheet" href="../favicon-32x32.png">
+    
+    <style>
+    </style>
+
+       <script>
+        function showExchange() {
+            const exchange = [
+                91.6918, 92.0538, 91.7791, 92.1314,
+                92.5058, 93.2918, 93.2519, 93.4409,
+                94.0922, 94.3242
+            ];
+            let table = document.getElementById('dollar-table');
+            let sum = 0;
+            for(let i =0; i < exchange.length; i++) {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                td.innerText = exchange[i];
+                tr.appendChild(td);
+                table.appendChild(tr);
+                sum += exchange[i];
+            }
+            
+            let average = sum / exchange.length;
+            average = average.toFixed(2);
+            let detailDiv = document.getElementById('detail');
+            detailDiv.innerText = `Среднее значение: ${average}`;
+            let button = document.getElementById('show-button');
+            button.style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showExchange()">Курс доллара</button>
+        <table border="1" id="dollar-table"></table>
+        <div id="detail"></div>
+    </main>
+
+    <footer>
+        &copy; Михаил Петраков, ФБИ-23, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
