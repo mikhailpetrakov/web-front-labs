@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петраков Михаил Вячеславович. Лабораторная работа 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../favicon-16x16.png">
+    <link rel="stylesheet" href="../favicon-32x32.png">
+
+    <style>
+        .circle {
+                text-align: center;
+                line-height: 30px;
+            }
+    </style>
+
+<script>
+    function addNewBlock() {
+        let newBlock = document.createElement('div');
+        newBlock.style.background = 'green';
+        newBlock.style.height = '40px';
+        newBlock.style.width = '100px';
+        newBlock.style.border = '2px solid black';
+        newBlock.style.margin = '10px';
+
+        document.querySelector('main').appendChild(newBlock);
+    }
+
+    function addNewBlocks() {
+        let main = document.querySelector('main');
+        let blocksCount = document.getElementById('blocksCount').value;
+        for(let i = 0; i < blocksCount; i++) {
+            let newBlock = document.createElement('div');
+            newBlock.style.background = 'green';
+            newBlock.style.height = '40px';
+            newBlock.style.width = `${(i+10) * 20}px`;
+            newBlock.style.border = '2px solid black';
+            newBlock.style.margin = '10px';
+            newBlock.innerText = `Блок № ${i + 1} :  ${2 * i**2}`;
+            newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>${i ** 2}</sup> = ${2 * i**2}` ;
+           main.appendChild(newBlock);
+        }
+    }
+    
+    function add20_50() {
+        let main = document.querySelector('main');
+        for(let i = 20; i<=50; i+=2.5) {
+            let newBlock = document.createElement('div');
+            newBlock.style.background = 'white';
+            newBlock.style.width = '200px';
+            newBlock.style.height = '40px';
+            newBlock.style.border = '1px solid';
+            newBlock.innerHTML = `${i}`;
+           main.appendChild(newBlock);
+        }
+    }
+
+    function addCircles() {
+                let main = document.querySelector('main');
+                for (let i = 10; i >= -80; i -= 3) {
+                    let newCircle = document.createElement('div');
+                    newCircle.classList.add('circle');
+                    newCircle.style.backgroundColor = 'Aquamarine';
+                    newCircle.style.width = '35px';
+                    newCircle.style.height = '35px';
+                    newCircle.style.borderRadius = '50%';
+                    newCircle.style.display = 'inline-block';
+                    newCircle.style.marginRight = '10px';
+                    newCircle.textContent = i;
+
+                    main.appendChild(newCircle);
+                }
+            }
+    
+    function addOpacityBlocks() {
+                let main = document.querySelector('main');
+                let opacity = 0;
+                for (let i = 0; i < 10; i++) {
+                    let newBlock = document.createElement('div');
+                    newBlock.classList.add('opacity-block');
+                    newBlock.style.backgroundColor = 'lightblue';
+                    newBlock.style.width = '40px';
+                    newBlock.style.height = '40px';
+                    newBlock.style.border = '1px solid black';
+                    newBlock.style.display = 'inline-block';
+                    newBlock.style.marginRight = '10px';
+                    newBlock.style.opacity = (i + 1) * 0.1;
+                    newBlock.textContent = i + 1;
+                    main.appendChild(newBlock);
+                }
+            }
+
+        function addColoredCircles() {
+        let main = document.querySelector('main');
+        let circlesCount = document.getElementById('circlesCount').value; 
+        for (let i = circlesCount; i > 0; i--) {
+                let circle = document.createElement('div');
+                circle.classList.add('circle');
+                circle.textContent = i;
+                circle.style.width = '50px';
+                circle.style.height = '50px';
+                circle.style.borderRadius = '50%';
+                circle.style.display = 'inline-block';
+                if (i % 2 === 0) { 
+                    circle.style.backgroundColor = 'Magenta';
+                } else {
+                    circle.style.backgroundColor = 'Blue';
+                }
+                main.appendChild(circle);
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="addNewBlock()">Добавить блок</button>
+        <input type="number" id="blocksCount" placeholder="Количество блоков">
+        <button onclick="addNewBlocks()">Добавить блоки</button>
+        <button onclick="add20_50()">>20=> 50</button>
+        <button onclick="addCircles()">10 => -80</button>
+        <button onclick="addOpacityBlocks()">Полупрозрачные блоки</button>
+        <input type="number" id="circlesCount" placeholder="Количество кругов">
+        <button onclick="addColoredCircles()">Пурпурный/Cиний</button>
+    </main>
+
+    <footer>
+        &copy; Михаил Петраков, ФБИ-23, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
