@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петраков Михаил Вячеславович. Лабораторная работа 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../favicon-16x16.png">
+    <link rel="stylesheet" href="../favicon-32x32.png">
+
+    <style>
+        .color{
+            color: black;
+            text-align:center;
+            width: 300px;
+            border: 1px solid;
+            border-radius: 3px;
+            vertical-align: top;
+            margin: 10px auto;
+            background: yellow;
+            cursor: pointer;
+            transition: 2s;
+        }
+    </style>
+    <script>
+        function changeColor(div) {
+            if(div.style.backgroundColor == 'yellow') {
+            div.style.backgroundColor = 'red';
+            div.style.color = "yellow";
+            document.getElementById('color-name').innerHTML = 'красный';
+            }
+            else if(div.style.backgroundColor == 'red') {
+            div.style.backgroundColor = 'black';
+            div.style.color = "white";
+            document.getElementById('color-name').innerHTML = 'чёрный';
+            }
+            else if(div.style.backgroundColor == 'black') {
+            div.style.backgroundColor = 'green';
+            div.style.color = 'white';
+            document.getElementById('color-name').innerHTML = 'зелёный';
+            }
+            else if(div.style.backgroundColor == 'green') {
+            div.style.backgroundColor = 'purple';
+            div.style.color = 'white';
+            document.getElementById('color-name').innerHTML = 'фиолетовый';
+            }
+            else if(div.style.backgroundColor == 'purple') {
+            div.style.backgroundColor = 'blue';
+            div.style.color = 'white';
+            document.getElementById('color-name').innerHTML = 'синий';
+            }
+            else {
+            div.style.backgroundColor = 'yellow';
+            div.style.color = 'black';
+            document.getElementById('color-name').innerHTML = 'жёлтый';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div class="color" ondblclick="changeColor(this)">
+            Цвет: <span id="color-name">жёлтый</span><br>
+            Сделайте двойной щелчок, чтобы сменить.
+        </div>
+    </main>
+
+    <footer>
+        &copy; Михаил Петраков, ФБИ-23, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
