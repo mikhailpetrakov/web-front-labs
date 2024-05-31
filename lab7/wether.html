@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петраков Михаил Вячеславович. Лабораторная работа 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../favicon-16x16.png">
+    <link rel="stylesheet" href="../favicon-32x32.png">
+    
+    <style>
+        .weather {
+            padding: 20px;
+            border: 3px solid rgb(195, 115, 41);
+            border-radius: 15px;
+            background-color: #bfa386;
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 20px left;
+            width: 400px;
+        }
+    </style>
+
+    <script>
+         function showWeather(){
+                const url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok';
+                fetch(url)
+                    .then(function(response){
+                        return response.json();
+                    })
+                    .then(function(json){
+                        const hourlyTemperatures = json.hourly.temperature_2m;
+                        const today = new Date();
+                        const todayIndex = today.getHours() + today.getMinutes() / 60;
+                        const morningTemperature = hourlyTemperatures[Math.floor(todayIndex)];
+                        const noonTemperature = hourlyTemperatures[Math.floor(todayIndex + 4)];
+                        const eveningTemperature = hourlyTemperatures[Math.floor(todayIndex + 12)];
+                        showWeatherData(morningTemperature, noonTemperature, eveningTemperature);
+                    })
+
+            }
+
+            function showWeatherData(morningTemperature, noonTemperature, eveningTemperature) {
+                const weatherElement = document.createElement('div');
+                weatherElement.classList.add('weather');
+                weatherElement.innerHTML = `
+                    <p>Температура в Новосибирске на сегодня:</p>
+                    <p>8:00: ${morningTemperature} °C</p>
+                    <p>12:00: ${noonTemperature} °C</p>
+                    <p>20:00: ${eveningTemperature} °C</p>`;
+                document.body.appendChild(weatherElement);
+            }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showWeather()" style="border: 1px solid #009666; border-radius: 10px; background-color: #5c3af0; padding: 15px 25px">
+            Получить прогноз погоды</button>
+    </main>
+
+    <footer>
+        &copy; Михаил Петраков, ФБИ-23, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
