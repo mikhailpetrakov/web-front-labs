@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петраков Михаил Вячеславович. Лабораторная работа 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../favicon-16x16.png">
+    <link rel="stylesheet" href="../favicon-32x32.png">
+
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div> 
+            <label for="balance">Мой баланс:</label> 
+            <input type="number" id="balance" value="300"> 
+        </div> 
+
+        <div>
+            <h2>Корзина товаров</h2>
+            <table border="1" width="30%">
+            <tr>
+                <td><b>Название</b></td>
+                <td><b>Цена</b></td>
+                <td><b>Колличество</b></td>
+            </tr>
+            <tr>
+                <td>Яблоки кг.</td>
+                <td>150 р.</td>
+                <td><input type="number" id="item1" value="0"></td>
+            </tr>
+            <tr>
+                <td>Молоко</td>
+                <td>90 р.</td>
+                <td><input type="number" id="item2" value="0"></td>
+            </tr>
+            <tr>
+                <td>Хлеб</td>
+                <td>50 р.</td>
+                <td><input type="number" id="item3" value="0"></td>
+            </tr>
+            <tr>
+                <td>Яйца 10 шт.</td>
+                <td>110 р.</td>
+                <td><input type="number" id="item4" value="0"></td>
+            </tr>
+            <tr>
+                <td>Творог 150 гр.</td>
+                <td>120 р.</td>
+                <td><input type="number" id="item5" value="0"></td>
+            </tr>
+            <tr>
+                <td>Рис</td>
+                <td>90 р.</td>
+                <td><input type="number" id="item6" value="0"></td>
+            </tr>
+            <tr>
+                <td>Мёд 100 гр.</td>
+                <td>220 р.</td>
+                <td><input type="number" id="item7" value="0"></td>
+            </tr>
+        </table>
+    </div>
+
+    <button id="checkout">OK</button> 
+    <div id="result"></div> 
+    </main>
+
+    <script>
+        let balanceInput = document.getElementById('balance'); 
+        let checkoutBtn = document.getElementById('checkout'); 
+        let resultDiv = document.getElementById('result'); 
+
+        let items = [ 
+            { name: 'Яблоки', price: 150, quantity: 0 }, 
+            { name: 'Молоко', price: 90, quantity: 0 }, 
+            { name: 'Хлеб', price: 50, quantity: 0 }, 
+            { name: 'Яйца', price: 110, quantity: 0 }, 
+            { name: 'Творог', price: 120, quantity: 0 }, 
+            { name: 'Рис', price: 90, quantity: 0 }, 
+            { name: 'Мёд', price: 220, quantity: 0 } 
+        ]; 
+
+        checkoutBtn.addEventListener('click', checkout); 
+        
+        function checkout() {
+            let totalCost = 0; 
+            let allEmpty = true; 
+            let negativeQuantity = false; 
+ 
+            for (let i = 0; i < items.length; i++) { 
+                let quantityInput = document.getElementById(`item${i + 1}`); 
+                let quantity = parseInt(quantityInput.value); 
+ 
+                if (!isNaN(quantity)) { 
+                    if (quantity < 0) { 
+                        negativeQuantity = true; 
+                    } else if (quantity > 0) { 
+                        allEmpty = false; 
+                         
+                        totalCost += items[i].price * quantity; 
+                    } 
+                } 
+            }
+            resultDiv.innerHTML = ''; 
+ 
+            if (negativeQuantity) { 
+                resultDiv.innerHTML = 'Ошибка: Количество товара не может быть отрицательным.'; 
+            } else if (allEmpty) {resultDiv.innerHTML = 'Ошибка: Необходимо выбрать хотя бы один товар.'; 
+            } else { 
+                const balance = parseInt(balanceInput.value); 
+                if (totalCost > balance) { 
+                    resultDiv.innerHTML = 'Ошибка: Общая стоимость ' + totalCost + ' превышает имеющийся баланс ' + balance; 
+                } else { 
+                    resultDiv.innerHTML = 'Успешное оформление товаров. Итоговая сумма: ' + totalCost; 
+                } 
+            } 
+        } 
+    </script>
+
+    <footer>
+        &copy; Михаил Петраков, ФБИ-23, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
