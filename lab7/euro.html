@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петраков Михаил Вячеславович. Лабораторная работа 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../favicon-16x16.png">
+    <link rel="stylesheet" href="../favicon-32x32.png">
+    
+    <style>
+        .euro-rate {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: lightgray;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            width: 400px;
+        }
+    </style>
+
+    <script>
+         function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+            fetch(url)
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(json){
+                    const euroRate = json.Valute.EUR.Value;
+                    const euroRateMessage = `Текущий курс евро: ${euroRate} рублей`;
+                    const date = new Date(json.Date);
+                    const dateMessage = `Дата запроса: ${date.toLocaleDateString()}`;
+                    const previousDate = new Date(json.PreviousDate);
+                    const previousDateMessage = `Дата предыдущего запроса: ${previousDate.toLocaleDateString()}`;
+                    const previousEuroRate = json.Valute.EUR.Previous;
+                    const difference = euroRate - previousEuroRate;
+                    const differenceMessage = difference > 0 ? `Курс поднялся на ${difference.toFixed(2)} рублей` : `Курс опустился на ${difference.toFixed(2)} рублей`;
+                    showEuroRate(euroRateMessage, dateMessage, previousDateMessage, differenceMessage);
+                })
+
+        }
+
+        function showEuroRate(euroRateMessage, dateMessage, previousDateMessage, differenceMessage) {
+            const euroRateElement = document.createElement('div');
+            euroRateElement.classList.add('euro-rate');
+            euroRateElement.innerHTML = `
+                <p>${euroRateMessage}</p>
+                <p>${dateMessage}</p>
+                <p>${previousDateMessage}</p>
+                <p>${differenceMessage}</p>
+                <p>Источник данных: <a href="https://www.cbr-xml-daily.ru/">Центральный банк РФ</a></p>`
+            ;
+            document.body.appendChild(euroRateElement);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="getEuroExchangeRate()">Получить курс евро</button>
+    </main>
+
+    <footer>
+        &copy; Михаил Петраков, ФБИ-23, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
