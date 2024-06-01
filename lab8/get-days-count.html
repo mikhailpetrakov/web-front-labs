@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петраков Михаил Вячеславович. Лабораторная работа 8</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../favicon-16x16.png">
+    <link rel="stylesheet" href="../favicon-32x32.png">
+
+    <script src="get-days-count.js"></script>
+
+    <style>
+        div {
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px;
+            border: 3px inset maroon;
+            border-radius: 5px;
+            background-color: white;
+            margin: 6px;
+        }
+
+        input {
+            padding: 10px;
+            border: 5px outset maroon;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 8
+    </header>
+
+    <main style="text-align: center;">
+       <div>
+            <label>Введите дату рождения: <input type="date"></label>
+       </div>
+       <div>
+        <button onclick="showDaysCount()">Показать число дней</button><br>
+        <button id="clear">Очистить</button>
+       </div>
+
+       <div id="birhday"></div>
+    </main>
+
+    <footer>
+        &copy; Михаил Петраков, ФБИ-23, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>

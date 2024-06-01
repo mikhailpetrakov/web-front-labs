@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петраков Михаил Вячеславович. Лабораторная работа 8</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../favicon-16x16.png">
+    <link rel="stylesheet" href="../favicon-32x32.png">
+
+    <script src="lab8.js"></script>
+
+    <style>
+        .current-date {
+            margin-top: 50px;
+
+        }
+        .week-day{
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 8
+    </header>
+
+    <main>
+        <div id="current-date"></div>
+        <div id="arabic-date"></div>
+        <div id="germany-date"></div>
+        <div id="greek-date"></div>
+        <div id="english-date"></div>
+
+        <div class="current-date">
+            <div id="year"></div>
+            <div id="month"></div>
+            <div id="day"></div>
+            <div id="weekDay"></div>
+        </div>
+
+        <div class="week-day">
+            <label for="day">День:</label>
+            <input style="height: 30px; width: 200px;" type="number" id="DAY" min="1" max="31" value="1">
+
+            <label for="month">Месяц:</label>
+            <input style="height: 30px; width: 200px;" type="number" id="MONTH" min="1" max="12" value="1">
+
+            <label for="year">Год:</label>
+            <input style="height: 30px; width: 200px;" type="number" id="YEAR" min="1900" max="2100" value="2024">
+
+            <button style="height: 30px; width: 200px;" id="dayButton">День недели</button>
+
+            <div id="result"></div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Михаил Петраков, ФБИ-23, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
